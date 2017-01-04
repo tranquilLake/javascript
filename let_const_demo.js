@@ -137,3 +137,8 @@ if (true) {
 const PI = 3.141592654;
 console.log(PI);
 // PI = 3.15;                               // TypeError
+
+// const value of object only promise that the reference of object will not change
+const foo_7 = {};
+foo_7.prop = 1;                             // can assigne properties of a const value
+console.log(foo_7.prop);
