@@ -92,3 +92,20 @@ var f_4 = function() {
 }
 
 f_4();                                  // print "5", just like there is not a inner block.
+
+// blocks can nest
+{
+    let a = 1;
+    {
+        let a = 2;
+        {
+            let a = 3;
+            {
+                let a = 4;
+                {
+                    let a = 5;
+                }
+            }
+        }
+    }
+}
