@@ -132,3 +132,8 @@ if (true) {
 
     f_6();                                  // print "outer", because inner function is only avalible in inner block.
 }
+
+// const value can not be assigned after declared
+const PI = 3.141592654;
+console.log(PI);
+// PI = 3.15;                               // TypeError
