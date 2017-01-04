@@ -75,3 +75,9 @@ function f_3() {
 }
 
 f_3();                                  // print "undefined", because tmp_3 in if block while be promoted before console.log statement.
+
+for (var i_4 = 0; i_4 < 5; i_4++) {
+    // console.log(i_4);
+}
+
+console.log(i_4);                       // printing "5", which means that the loop variable has leaked
