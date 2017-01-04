@@ -116,3 +116,19 @@ if (true) {
         console.log("f_5");
     }
 }
+
+// defining function in a block is actually just defining a let function variable in the block.
+
+if (true) {
+    function f_6() {
+        console.log("outter");
+    }
+
+    if (true) {
+        function f_6() {
+            console.log("inner");
+        }
+    }
+
+    f_6();                                  // print "outer", because inner function is only avalible in inner block.
+}
