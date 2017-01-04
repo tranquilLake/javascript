@@ -25,7 +25,7 @@ a_1[6]();                               // “10” will be printed, because i_1
 
 // let variable exist only in the block where it is defined
 let a_2 = [];
-for (let i_2 = 0; i_2 < 10; i_2 ++) {
+for (let i_2 = 0; i_2 < 10; i_2++) {
     a_2[i_2] = function () {
         console.log(i_2);
     }
@@ -50,7 +50,7 @@ let tmp_1 = 1;
 if (true) {
     // console.log(tmp_1);              // ReferenceError, while defining a let variable in a block,
     let tmp_1 = 2;                      // than all variable have the same name refer to the let variable,
-                                        // and will only be dynamically added on the defining line.
+    // and will only be dynamically added on the defining line.
 }
 
 // let variable is not allowed to be defined twice in a block
@@ -83,7 +83,7 @@ for (var i_4 = 0; i_4 < 5; i_4++) {
 console.log(i_4);                       // printing "5", which means that the loop variable has leaked.
 
 // variable in inner block will not effect variable in outter block
-var f_4 = function() {
+var f_4 = function () {
     let n = 5;
     if (true) {
         let n = 10;
@@ -107,5 +107,12 @@ f_4();                                  // print "5", just like there is not a i
                 }
             }
         }
+    }
+}
+
+// we can define function in a block after es6
+if (true) {
+    function f_5() {
+        console.log("f_5");
     }
 }
