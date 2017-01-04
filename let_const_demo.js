@@ -41,3 +41,14 @@ var foo_1 = 1;
 
 // console.log(bar_1);                  // ReferenceError, because the let variable will not be promoted, and will only be dynamically added on next line.
 let bar_1 = 2;
+
+
+// let variable has not promotion
+// but let variable has a temporal dead zone
+let tmp_1 = 1;
+
+if (true) {
+    // console.log(tmp_1);              // ReferenceError, while defining a let variable in a block,
+    let tmp_1 = 2;                      // than all variable have the same name refer to the let variable,
+                                        // and will only be dynamically added on the defining line.
+}
