@@ -52,3 +52,26 @@ if (true) {
     let tmp_1 = 2;                      // than all variable have the same name refer to the let variable,
                                         // and will only be dynamically added on the defining line.
 }
+
+// let variable is not allowed to be defined twice in a block
+var f_1 = function () {
+    var a = 1;
+    // let a = 1;                       // SyntaxError, Identifier has bean declared
+}
+
+var f_2 = function () {
+    let a = 1;
+    // let a = 1;                       // SyntaxError, Identifier has bean declared
+}
+
+// why we need a block scope
+var tmp_3 = new Date();
+
+function f_3() {
+    console.log(tmp_3);
+    if (false) {
+        var tmp_3 = "hello world";
+    }
+}
+
+f_3();                                  // print "undefined", because tmp_3 in if block while be promoted before console.log statement.
