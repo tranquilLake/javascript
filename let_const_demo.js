@@ -80,4 +80,15 @@ for (var i_4 = 0; i_4 < 5; i_4++) {
     // console.log(i_4);
 }
 
-console.log(i_4);                       // printing "5", which means that the loop variable has leaked
+console.log(i_4);                       // printing "5", which means that the loop variable has leaked.
+
+// variable in inner block will not effect variable in outter block
+var f_4 = function() {
+    let n = 5;
+    if (true) {
+        let n = 10;
+    }
+    console.log(n);
+}
+
+f_4();                                  // print "5", just like there is not a inner block.
