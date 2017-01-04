@@ -32,3 +32,12 @@ for (let i_2 = 0; i_2 < 10; i_2 ++) {
 }
 a_2[6]();                               // "6" wile be printed, because i_2 exist only in one iteration in the for loop, and be closured in the returned function.
 
+
+// var variable will be promoted
+// let variable will not be promoted
+
+console.log(foo_1);                     // print "undefined", because the var variable foo_1 will be promoted to be an environment variable, but not assigned until next line.
+var foo_1 = 1;
+
+// console.log(bar_1);                  // ReferenceError, because the let variable will not be promoted, and will only be dynamically added on next line.
+let bar_1 = 2;
