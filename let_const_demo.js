@@ -163,4 +163,44 @@ console.log(foo_10.a);                      // print "1"
 console.log(foo_10.b);                      // print "2"
 
 
+// constantize function
+
+let obj_11 = {
+    a: 1,
+    b: 2,
+    c: {
+        d: 3,
+        e: 4
+    }
+}
+
+console.log("test for in");
+for (let e in obj_11) {
+    console.log(e);
+}
+
+console.log("test for of");
+// for (let e of obj_11) {                  // TypeError: is not a function
+//    console.log(e);
+// }
+
+let constantize = (obj) => {
+    console.log(`freeze obj: ${obj}`);
+    Object.freeze(obj);
+    for (let key in obj) {
+        if (typeof obj[key] === "object")
+            constantize(obj[key]);
+    }
+}
+
+let constantize_1 = (obj) => {
+    console.log(`freeze obj: ${obj}`);
+    Object.freeze(obj);
+    Object.keys(obj).forEach((it => {
+        if (typeof it === "object")
+            constantize_1(obj[it]);
+    }))
+}
+constantize(obj_11);
+
 
