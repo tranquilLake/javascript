@@ -140,5 +140,27 @@ console.log(PI);
 
 // const value of object only promise that the reference of object will not change
 const foo_7 = {};
-foo_7.prop = 1;                             // can assigne properties of a const value
+foo_7.prop = 1;                             // can assign properties of a const value
 console.log(foo_7.prop);
+// foo_7 = {};                              // can not assign
+
+const foo_8 = [];
+foo_8.push(1);
+console.log(foo_8.length);
+console.log(foo_8[0]);
+
+// Object.freeze()
+let foo_9 = {
+    "a": 1,
+    "b": 2
+}
+
+const foo_10 = Object.freeze(foo_9);
+foo_10.a = 2;
+foo_10.b = 1;
+console.log("freeze object");
+console.log(foo_10.a);                      // print "1"
+console.log(foo_10.b);                      // print "2"
+
+
+
