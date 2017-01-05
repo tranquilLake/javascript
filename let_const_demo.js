@@ -199,8 +199,44 @@ let constantize_1 = (obj) => {
     Object.keys(obj).forEach((it => {
         if (typeof it === "object")
             constantize_1(obj[it]);
-    }))
+    }));
 }
 constantize(obj_11);
 
+// es6 global
 
+// test global
+// console.log(window);
+console.log(global);
+console.log(this);
+console.log(console.this);
+
+var a_12 = 1;
+console.log(global.a_12);                   // print undefined
+
+let b_12 = 2;
+console.log(global.b_12);                   // print undefined
+
+console.log(this);
+
+// get global function
+
+let getGlobal = () => {
+    return typeof window !== "undefined"
+        ? window
+        : (typeof process === "object" && typeof require === "function" && typeof global === "object")
+            ? global
+            : this;
+}
+
+console.log(getGlobal() === global);
+// console.log(getGlobal())
+
+let getGlobal_2 = () => {
+    if (typeof self !== "undefined") return self;
+    if (typeof window !== "undefined") return window;
+    if (typeof global !== "undefined") return global;
+    throw new Error("unable to get global object");
+}
+
+console.log(getGlobal_2() === global);
