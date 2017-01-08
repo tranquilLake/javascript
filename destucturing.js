@@ -122,8 +122,29 @@ console.log(e_17);                              // print e, and a, b, c, e are a
 let {x_18 = 3} = {}
 console.log(x_18);
 
-let {x: x_19, y: y_19 = 5} = {x: 1};
+let {x: x_19, y: y_19 = 5} = { x: 1 };
 console.log(x_19, y_19);                        // print 1 5
 
-let {x: x_20 = 1} = {x: undefined};
+let {x: x_20 = 1} = { x: undefined };
 console.log(x_20);                              // print 1
+
+// null value can not trigger the default value;
+let {x: x_21 = 1} = { x: null };
+console.log(x_21);                              // print null
+
+// if the object destructing is failed, an undefined value will be setted
+let {x: x_22} = {};
+console.log(x_22);                              // print undefined
+
+// if an nested object destructing is failed by miss an outter property, an error will be raised
+let obj_23 = {
+    a: {
+        c: {
+            d: "d"
+        }
+    }
+}
+
+// let {a: {b: {c: {d: d_23}}}} = obj_23;       // TypeError: Cannot match against "undefined" or "null".
+// console.log(d_23);
+
