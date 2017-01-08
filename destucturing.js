@@ -187,14 +187,38 @@ console.log(Number.prototype.toString === toString);        // print true;
 let {log: log_27} = console;
 console.log(log_27);                        // print function 
 log_27.call(null, 1, 2, 3);                 // print 1 2 3
-log_27.apply(null, [1, 2 ,3]);              // print 1 2 3
+log_27.apply(null, [1, 2, 3]);              // print 1 2 3
 
 let {toString: toString_28} = true;
 console.log(toString_28 === Boolean.prototype.toString);    // print true;
 
 // function arguments destructing 
-function f_29([a, b, c]){
+function f_29([a, b, c]) {
     return a + b + c;
 }
 
 console.log(f_29([1, 2, 3]));               // print 6
+
+// function argument destructing
+function f_30({a, b, c}) {
+    return a + b + c;
+}
+
+console.log(f_30({                          // print 6
+    a: 1,
+    b: 2,
+    c: 3
+}));
+
+// function argument destructing default value
+function f_31({man = "Liang ShanBo", woman = "Zhu YingTai"}) {
+    return console.log(man, "likes", woman, ".");
+}
+
+f_31({});                                   // print "Liang ShanBo likes Zhu YingTai"
+f_31({ man: "Romeo" });                     // print "Romeo likes Zhu YingTai"
+f_31({ woman: "Juliet" });                  // print "Liang ShanBo likes Juliet"
+
+// function argument default value
+let list_f_32 = [1, 2, 3, null, 5, undefined, 6, 7].map((it = "Oops") => it);
+console.log(list_f_32);                     // print [ 1, 2, 3, null, 5, 'Oops', 6, 7 ], appendix: null will not trigger the default value
