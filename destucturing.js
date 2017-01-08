@@ -222,3 +222,49 @@ f_31({ woman: "Juliet" });                  // print "Liang ShanBo likes Juliet"
 // function argument default value
 let list_f_32 = [1, 2, 3, null, 5, undefined, 6, 7].map((it = "Oops") => it);
 console.log(list_f_32);                     // print [ 1, 2, 3, null, 5, 'Oops', 6, 7 ], appendix: null will not trigger the default value
+
+// more usage of destructing
+
+// change values of two variables
+let x_32 = 1;
+let y_32 = 2;
+([x_32, y_32] = [y_32, x_32]);
+console.log(x_32, y_32);                    // print 2 1
+
+// destruct multi return value from functions
+function randomPoint() {
+    let x = Math.random();
+    let y = Math.random();
+    return [x, y];
+}
+console.log(randomPoint());
+let [x_33, y_33] = randomPoint();
+console.log(x_33, y_33);                    // print two random decimal
+
+function randomPoint2() {
+    let x = Math.random();
+    let y = Math.random();
+    return {x: x, y: y};
+}
+
+let {x: x_34, y: y_34} = randomPoint2();
+console.log(x_34, y_34);					// print two random decimal
+
+// extract data from json object
+let json_35 = {
+    id: 1101,
+    status: true,
+    name: "zhangsan"
+}
+
+let {id, status, name} = json_35;
+console.log(id, status, name);              // print 1101 true zhangsan
+
+
+
+
+
+
+
+
+
