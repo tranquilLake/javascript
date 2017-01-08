@@ -166,3 +166,17 @@ for (let member in Math) {
     console.log(member, "->", Math[member]);
 }
 
+// array destrucing like object destructing
+let {0: a_24, 1: b_24, 2: c_24} = [1, 2, 3];
+console.log(a_24, b_24, c_24);              // print 1 2 3
+
+// array destructing on string
+let [a_25, b_25, c_25, d_25, e_25] = "hello";
+console.log(a_25, b_25, c_25, d_25, e_25);
+
+// object destructing on string
+let {length: length_26} = "hello";
+console.log(length_26);                     // print 5
+
+
+
