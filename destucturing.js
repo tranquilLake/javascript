@@ -117,3 +117,13 @@ let obj_17 = {
 
 let {a: {b: {c: {d: {e: e_17}}}}} = obj_17;
 console.log(e_17);                              // print e, and a, b, c, e are all pattern but not variable define
+
+// object destructing default value
+let {x_18 = 3} = {}
+console.log(x_18);
+
+let {x: x_19, y: y_19 = 5} = {x: 1};
+console.log(x_19, y_19);                        // print 1 5
+
+let {x: x_20 = 1} = {x: undefined};
+console.log(x_20);                              // print 1
