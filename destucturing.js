@@ -178,5 +178,23 @@ console.log(a_25, b_25, c_25, d_25, e_25);
 let {length: length_26} = "hello";
 console.log(length_26);                     // print 5
 
+// apply object destructing on number or boolean
+let {toString} = 123;
+console.log(toString);                      // print function 
+console.log(toString.apply(123));           // print 123
+console.log(Number.prototype.toString === toString);        // print true;
 
+let {log: log_27} = console;
+console.log(log_27);                        // print function 
+log_27.call(null, 1, 2, 3);                 // print 1 2 3
+log_27.apply(null, [1, 2 ,3]);              // print 1 2 3
 
+let {toString: toString_28} = true;
+console.log(toString_28 === Boolean.prototype.toString);    // print true;
+
+// function arguments destructing 
+function f_29([a, b, c]){
+    return a + b + c;
+}
+
+console.log(f_29([1, 2, 3]));               // print 6
