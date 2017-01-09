@@ -74,5 +74,5 @@ console.log(s_8.endsWith("!"));         // print true
 console.log("x".repeat(3));             // print xxx
 console.log("x".repeat(2.9));           // print xx, because 2.9 will be trunced to 2
 // console.log("x".repeat(-1));         // RangeError: Invalid count value
-console.log("x".repeat(Infinity));      // RangeError: Invalid count value
+// console.log("x".repeat(Infinity));   // RangeError: Invalid count value
 
