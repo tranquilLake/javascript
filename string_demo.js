@@ -39,3 +39,19 @@ console.log(s_5);                       // can not print 𠮷
 // after es6 we can use String.fromCodePoint() to handle 32-bit char code
 let s_6 = String.fromCodePoint(0x20bb7);
 console.log(s_6);
+
+// for-of loop can detect 32-bit character
+let s_7 = "𠮷𠮷𠮷𠮷𠮷";
+for (let i in s_7) {
+    console.log(s_7[i]);                // can not print corrent characters
+}
+
+for (let c of s_7) {
+    console.log(c);                     // can print several 𠮷
+}
+
+// string.charAt function can not handle 32-bit character
+console.log("𠮷".charAt(0));            // can not print 𠮷
+
+// string.at function come with es6 can handle 32-bit charater
+// console.log("𠮷".at(0));
