@@ -63,3 +63,16 @@ console.log(                            // print false, because them have same m
     "\u01D1" === "\u004F\u030C");   
 console.log(                            // print true, because "\u004F\u030C" has bean changed to "\u01D1"
     "\u01D1" === "\u004F\u030C".normalize());
+
+// string.includes(), string.startsWith(), string.endsWith()
+let s_8 = "hello world!";
+console.log(s_8.includes("ll"));        // print true
+console.log(s_8.startsWith("hello"));   // print true
+console.log(s_8.endsWith("!"));         // print true
+
+// string.repeat() function
+console.log("x".repeat(3));             // print xxx
+console.log("x".repeat(2.9));           // print xx, because 2.9 will be trunced to 2
+// console.log("x".repeat(-1));         // RangeError: Invalid count value
+console.log("x".repeat(Infinity));      // RangeError: Invalid count value
+
