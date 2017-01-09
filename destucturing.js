@@ -260,6 +260,15 @@ let json_35 = {
 let {id, status, name} = json_35;
 console.log(id, status, name);              // print 1101 true zhangsan
 
+// iterate a map
+
+var map = new Map();
+map.set('first', 'hello');
+map.set('second', 'world');
+
+for (let [key, value] of map) {
+  console.log(key, "is", value);
+}
 
 
 
