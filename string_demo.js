@@ -76,3 +76,5 @@ console.log("x".repeat(2.9));           // print xx, because 2.9 will be trunced
 // console.log("x".repeat(-1));         // RangeError: Invalid count value
 // console.log("x".repeat(Infinity));   // RangeError: Invalid count value
 
+// padStart() padEnd() function
+// console.log("101".padStart(8, "0"));
