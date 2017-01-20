@@ -41,6 +41,14 @@ console.log(Number.parseInt("1.23"));                       // print 1
 console.log(Number.parseFloat(1));                          // print 1
 console.log(Number.parseFloat(1.23));                       // print 1.23
 
+// Number.isInteger()
+console.log(Number.isInteger(1));                           // print true
+console.log(Number.isInteger(1.0));                         // print true
+console.log(Number.isInteger(25.1));                        // print false
+console.log(Number.isInteger("1"));                         // print false
+console.log(Number.isInteger(true));                        // print false
 
+// Number.EPSILON 
+console.log(Number.EPSILON);                            
 
 
