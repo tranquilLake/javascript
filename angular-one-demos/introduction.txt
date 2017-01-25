@@ -1,0 +1,14 @@
+angular is: 
+    a frame provide structrual supporting to build dynamic web app.
+
+functions:
+    module, model, view
+    ajax
+    dependency injection
+    navigation
+    testing
+    more...
+
+how angular is different
+    angular make developers releasing from dom controling.
+
