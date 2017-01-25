@@ -9,6 +9,21 @@
         <div>
             <input type="text" ng-model="name" placeholder="name">
             <p>hello {{name}}</p>
+            <p>
+                ng-app attribute mark an element and bind an angular component to the element.
+            </p>
+            <p>
+                two way data binding make controller level not to take care of dom value.
+                if value be changed by view, model will accept the new value.
+                if value in model be changed, view will referesh to show the newest value.
+            </p>
+            <p>
+                angular uses dirty checking to act with user interaction
+            </p>
+            <p>
+                angular follow MVC design style, and use $scope object as model abstraction.
+                $sople is avalible to the view component and controlled by the controller component.
+            </p>
         </div>
     </body>
 </html>
