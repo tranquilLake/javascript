@@ -1,0 +1,5 @@
+$scope is a core fundation of angular which is applied so widely.
+a $scope is relevant to model in program
+$scope s can nest in others and access properties in father $scope s
+We can put all the businesses in controllers, and all the data in models.
+ 

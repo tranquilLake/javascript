@@ -1,0 +1,30 @@
+<html ng-app="app">
+
+<head>
+    <script src="./node_modules/angular/angular.min.js"></script>
+</head>
+
+<body>
+    <div ng-controller="ClockController">
+        <h3>Hello, now is:</h3>
+        <h1>{{clock}}</h1>
+    </div>
+
+    <!-- module adventage -->
+    <!--  -->
+    <script type="text/javascript">
+        var app = angular.module("app", [])
+            .controller("ClockController", function ($scope, $timeout) {
+                var updateTime = function () {
+                    $scope.clock = new Date();
+                    $timeout(function () {
+                        updateTime();
+                    }, 1000);
+                };
+
+                updateTime();
+            });
+    </script>
+</body>
+
+</html>

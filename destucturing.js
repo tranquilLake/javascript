@@ -239,7 +239,7 @@ function randomPoint() {
 }
 console.log(randomPoint());
 let [x_33, y_33] = randomPoint();
-console.log(x_33, y_33);                    // print two random decimal
+console.log(x_33, y_33);                    // print         two random decimal
 
 function randomPoint2() {
     let x = Math.random();
@@ -248,32 +248,4 @@ function randomPoint2() {
 }
 
 let {x: x_34, y: y_34} = randomPoint2();
-console.log(x_34, y_34);					// print two random decimal
-
-// extract data from json object
-let json_35 = {
-    id: 1101,
-    status: true,
-    name: "zhangsan"
-}
-
-let {id, status, name} = json_35;
-console.log(id, status, name);              // print 1101 true zhangsan
-
-// iterate a map
-
-var map = new Map();
-map.set('first', 'hello');
-map.set('second', 'world');
-
-for (let [key, value] of map) {
-  console.log(key, "is", value);
-}
-
-
-
-
-
-
-
-
+console.log(x_34, y_34);
