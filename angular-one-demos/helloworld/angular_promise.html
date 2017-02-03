@@ -1,0 +1,71 @@
+<html>
+
+<head>
+    <title>hello angular</title>
+    <!-- angualr dependency -->
+    <script src="./node_modules/angular/angular.min.js"></script>
+</head>
+
+<body ng-app="app">
+    <!-- angular promise demo -->
+    <div ng-controller="ctrl">
+        <p>{{data}}</p>
+    </div>
+    <div ng-controller="qCtrl">
+        <p>this is a demo of $q promise implementation provided by angular js</p>
+    </div>
+    <script>
+        angular.module("app", [])
+
+            // ctrl controller
+            .controller("ctrl", function ($scope, $http) {
+
+                $scope.data = "no data now";
+
+                $http.get("data.json").then(
+                    function (success) {
+                        $scope.data = success.data
+                    },
+                    function (error) {
+                        $scope.data = error
+                    }
+                )
+
+            })
+
+            // qCtrl controller
+            // this is a demo of $q promise implementation provided by angular js
+            .controller("qCtrl", function ($scope, $q, $log) {
+
+                // Person class constructor
+                var Person = function (name, $log) {
+                    this.eat = function (food) {
+                        $log.info("name is eating delicious food".replace("name", name).replace("food", food));
+                    }
+
+                    this.beHungry = function (reason) {
+                        $log.warn("name is hungry because: reason".replace("name", name).replace("reason", reason));
+                    }
+                };
+
+                // A person named Tom
+                var Tom = new Person("Tom", $log);
+
+                // an async task
+                var pizzaOrder = $q.defer();
+
+                // get promise and set callback to promised result.
+                var pizzaOrderPromise = pizzaOrder.promise.then(Tom.eat, Tom.beHungry);
+
+                // finish the async task
+                pizzaOrder.resolve("Margherita");
+                // we can also reject a promise by a reject call
+
+                
+            });
+
+
+    </script>
+</body>
+
+</html>
