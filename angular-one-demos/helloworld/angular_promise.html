@@ -14,7 +14,7 @@
     <div ng-controller="qCtrl">
         <p>this is a demo of $q promise implementation provided by angular js</p>
     </div>
-    <script>
+    <script type="text/javascript">
         angular.module("app", [])
 
             // ctrl controller
@@ -61,7 +61,93 @@
                 pizzaOrder.resolve("Margherita");
                 // we can also reject a promise by a reject call
 
-                
+                // promise is a normal javascript object which we can constructor service by.
+
+                // Restaurant class
+                var Restaurant = function ($q) {
+
+                    // current operating order
+                    var currentOrder;
+
+                    // take an order
+                    this.takeOrder = function (orderedItems) {
+
+                        currentOrder = {
+                            deferred: $q.defer(),
+                            items: orderedItems
+                        }
+
+                        return currentOrder.deferred.promise;
+                    };
+
+                    // deliver an order
+                    this.deliverOrder = function () {
+                        if (currentOrder && currentOrder["deferred"]) {
+                            currentOrder.deferred.resolve(currentOrder.items);
+                        }
+                    };
+
+
+                    // reject an order
+                    this.rejectOrder = function (reason) {
+                        if (currentOrder && currentOrder["deferred"]) {
+                            currentOrder.deferred.reject(reason);
+                        }
+                    };
+                }
+
+                var restaurant = new Restaurant($q);
+
+                var order = restaurant.takeOrder(["hamburg", "pizza"]);
+                order.then(Tom.eat, Tom.beHungry);
+                restaurant.deliverOrder();
+
+                var order_2 = restaurant.takeOrder(["coffee"]);
+                order_2.then(Tom.eat, Tom.beHungry);
+                restaurant.rejectOrder("Sorry, there is no coffee, now.");
+
+                // multiple callback
+
+                var Jack = new Person("Jack", $log);                                // a Person named Jack
+                var Mary = new Person("Mary", $log);                                // a Person named Mary
+
+                var order_3 = restaurant.takeOrder(["hamburg", "pizza"]);           // make an order
+
+                order_3.then(Jack.eat, Jack.beHungry);                              // bind callback to the order
+                order_3.then(Mary.eat, Mary.beHungry);                              // bind another callback to the order
+
+                restaurant.deliverOrder();                                          // fulfill the promise
+
+
+                // multiple promise to execute like an ordinal program
+                console.log("multiple promise to execute like an ordinal program");
+                var slice = function (food) {
+                    return "heated " + food;
+                };
+
+                var order_4 = restaurant.takeOrder(["hamburg"]);
+                order_4.then(slice).then(Jack.eat);
+
+                restaurant.deliverOrder();
+
+                // aggregated promise
+                // $q.all() implementation
+
+                var pizzaPit = new Restaurant($q);
+                var saladBar = new Restaurant($q);
+
+                var orders = $q.all([
+                    pizzaPit.takeOrder(["Pepperoni"]),
+                    saladBar.takeOrder(["Fresh salad"]),
+                ]);
+
+                orders.then(Tom.eat);
+
+                pizzaPit.deliverOrder();
+                saladBar.deliverOrder();
+
+                // $q.when() get a finish promise
+                $q.when(["hamburg", "pizza", "pie"]).then(Tom.eat);
             });
 
 
